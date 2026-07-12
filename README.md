@@ -1,8 +1,8 @@
-# 🛍️ ShopEase — MERN E-Commerce Platform
+# ShopEase — MERN E-Commerce Platform
 
 A complete full-stack online shopping platform built with **MongoDB, Express, React, and Node.js**. Users can browse products, add them to a cart, and place orders. Admins can manage products and orders through a dedicated dashboard.
 
-## ✨ Features
+## Features
 
 **Customer**
 - Register / login with JWT authentication
@@ -27,7 +27,10 @@ A complete full-stack online shopping platform built with **MongoDB, Express, Re
 - Stock is validated and decremented server-side at checkout (never trusts client prices)
 - Responsive UI built with React + Tailwind CSS (via CDN, no extra build config needed)
 
-## 🧰 Tech Stack
+### OUTPUT 
+
+
+## Tech Stack
 
 | Layer      | Technology                              |
 |------------|------------------------------------------|
@@ -64,39 +67,38 @@ ecommerce-mern/
     └── vite.config.js
 ```
 
+### OUTPUT
+
+<img width="1904" height="898" alt="e1" src="https://github.com/user-attachments/assets/2d1ee5fe-4ca6-46fa-b4ab-7672a948a990" />
+<img width="1920" height="908" alt="e2" src="https://github.com/user-attachments/assets/37850b80-da3f-4fc3-840e-068f43cace23" />
+
+
 ## 🚀 Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) v18 or later
-- [MongoDB](https://www.mongodb.com/try/download/community) running locally, **or** a free [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) cluster
+-  [Node.js] v18 or later
+-  [MongoDB] running locally, **or** a free [MongoDB Atlas] cluster
 
 ### 1. Backend Setup
 
-```bash
-cd backend
-npm install
-cp .env.example .env
-```
+-  cd backend
+-  npm install
+-  
+  Create `.env` and set your own values:
 
-Open `.env` and set your own values:
-
-```
 PORT=5000
 NODE_ENV=development
 MONGO_URI=mongodb://127.0.0.1:27017/ecommerce_mern
 JWT_SECRET=replace_this_with_a_long_random_secret_key
 JWT_EXPIRE=7d
 CLIENT_URL=http://localhost:5173
-```
 
 > If you're using MongoDB Atlas, replace `MONGO_URI` with your connection string, e.g.
 > `mongodb+srv://<username>:<password>@cluster0.mongodb.net/ecommerce_mern`
 
 **(Optional but recommended)** Seed the database with sample products and demo accounts:
 
-```bash
-npm run seed
-```
+-  npm run seed
 
 This creates:
 - Admin login: `admin@example.com` / `admin123`
@@ -106,10 +108,7 @@ This creates:
 To wipe all data later: `npm run seed:destroy`
 
 Start the backend server:
-
-```bash
-npm run dev
-```
+-  npm run dev
 
 The API will run at `http://localhost:5000`. Visit `http://localhost:5000/api/health` to confirm it's working.
 
@@ -117,13 +116,11 @@ The API will run at `http://localhost:5000`. Visit `http://localhost:5000/api/he
 
 Open a **new terminal window**:
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+-  cd frontend
+-  npm install
+-  npm run dev
 
-The app will run at `http://localhost:5173`. The Vite dev server is pre-configured to proxy `/api` requests to `http://localhost:5000`, so no extra `.env` setup is required for local development.
+The app will run at `http://localhost:5173`. 
 
 ### 3. Try it out
 
@@ -131,45 +128,4 @@ The app will run at `http://localhost:5173`. The Vite dev server is pre-configur
 2. Log in with the seeded admin account (`admin@example.com` / `admin123`) to access `/admin` and manage products/orders
 3. Log in with the seeded user account (or register a new one) to browse, add to cart, and check out
 
-## 🔑 API Overview
 
-| Method | Endpoint                       | Description                        | Access        |
-|--------|----------------------------------|-------------------------------------|---------------|
-| POST   | `/api/auth/register`            | Register new user                   | Public        |
-| POST   | `/api/auth/login`                | Login                                | Public        |
-| GET    | `/api/auth/profile`              | Get current user profile             | Private       |
-| PUT    | `/api/auth/profile`              | Update profile                       | Private       |
-| GET    | `/api/products`                  | List products (search/filter/paginate) | Public     |
-| GET    | `/api/products/:id`               | Get single product                   | Public        |
-| POST   | `/api/products`                  | Create product                       | Admin         |
-| PUT    | `/api/products/:id`               | Update product                       | Admin         |
-| DELETE | `/api/products/:id`               | Delete product                       | Admin         |
-| POST   | `/api/products/:id/reviews`       | Add product review                   | Private       |
-| GET    | `/api/cart`                      | Get current user's cart              | Private       |
-| POST   | `/api/cart`                      | Add item to cart                     | Private       |
-| PUT    | `/api/cart/:productId`            | Update cart item quantity            | Private       |
-| DELETE | `/api/cart/:productId`            | Remove item from cart                | Private       |
-| POST   | `/api/orders`                    | Place an order (checkout)            | Private       |
-| GET    | `/api/orders/my-orders`           | Get logged-in user's orders          | Private       |
-| GET    | `/api/orders/:id`                 | Get single order                     | Private/Admin |
-| GET    | `/api/orders`                    | Get all orders                       | Admin         |
-| PUT    | `/api/orders/:id/status`          | Update order status                  | Admin         |
-| PUT    | `/api/orders/:id/cancel`          | Cancel an order                      | Private       |
-| GET    | `/api/users`                     | List all users                       | Admin         |
-
-## 💳 About Payments
-
-This project **simulates** payment processing rather than integrating a live payment gateway (like Stripe or Razorpay), so you can test the full checkout flow without needing real API keys. Selecting "Card" or "UPI" at checkout instantly marks the order as paid; selecting "Cash on Delivery" leaves it unpaid until delivery. This is clearly noted in the checkout UI. If you'd like to wire up a real gateway later, the `paymentMethod` and `paymentResult` fields on the `Order` model are ready to be extended.
-
-## 📦 Building for Production
-
-```bash
-cd frontend
-npm run build
-```
-
-This outputs static files to `frontend/dist`, which you can deploy to any static host (Vercel, Netlify, etc.). Deploy the `backend` folder separately to a Node host (Render, Railway, Fly.io, etc.), and set `CLIENT_URL` in its `.env` to your deployed frontend URL.
-
-## 📝 License
-
-This project is provided as-is for learning purposes. Feel free to use and modify it freely.
