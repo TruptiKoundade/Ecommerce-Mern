@@ -27,8 +27,6 @@ A complete full-stack online shopping platform built with **MongoDB, Express, Re
 - Stock is validated and decremented server-side at checkout (never trusts client prices)
 - Responsive UI built with React + Tailwind CSS (via CDN, no extra build config needed)
 
-### OUTPUT 
-
 
 ## Tech Stack
 
@@ -66,12 +64,6 @@ ecommerce-mern/
     ├── package.json
     └── vite.config.js
 ```
-
-### OUTPUT
-
-<img width="1904" height="898" alt="e1" src="https://github.com/user-attachments/assets/2d1ee5fe-4ca6-46fa-b4ab-7672a948a990" />
-<img width="1920" height="908" alt="e2" src="https://github.com/user-attachments/assets/37850b80-da3f-4fc3-840e-068f43cace23" />
-
 
 ## 🚀 Getting Started
 
@@ -127,5 +119,12 @@ The app will run at `http://localhost:5173`.
 1. Go to `http://localhost:5173`
 2. Log in with the seeded admin account (`admin@example.com` / `admin123`) to access `/admin` and manage products/orders
 3. Log in with the seeded user account (or register a new one) to browse, add to cart, and check out
+
+### OUTPUT
+
+<img width="1904" height="898" alt="e1" src="https://github.com/user-attachments/assets/2d1ee5fe-4ca6-46fa-b4ab-7672a948a990" />
+
+<img width="1920" height="908" alt="e2" src="https://github.com/user-attachments/assets/37850b80-da3f-4fc3-840e-068f43cace23" />
+
 
 
